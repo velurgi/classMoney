@@ -195,7 +195,7 @@ int main()
             std::cout << "Добавочные пенсы: " << std::endl;
             std::cin >> answer;
             answer = dataCheckInt(answer, 0);
-            balance.addSchilling(answer);
+            balance.addPens(answer);
 
             std::cout << std::endl << "Баланс успешно обновлён. \nОн составляет ";
             balance.sort();
