@@ -89,7 +89,7 @@ public:
                 else {
                     std::cout << "Вы не можете убавить больше, чем у вас есть. Кредитный рейтинг слишком низок." << std::endl;
                     std::cout << "Текущие шиллинги: " << schilling << std::endl;
-                    std::cout << "Введите убавочные фунты ещё раз: " << std::endl;
+                    std::cout << "Введите убавочные шиллинги ещё раз: " << std::endl;
                     std::cin >> decreasement;
                     decreasement = dataCheckInt(decreasement, 0, schilling);
                 }
@@ -105,6 +105,7 @@ public:
         schilling += pound * 20;
         pound = 0;
         pens += schilling * 12;
+        schilling = 0;
         if (pens != 0) {
             do {
                 if (decreasement <= pens) {
@@ -114,8 +115,8 @@ public:
                 }
                 else {
                     std::cout << "Вы не можете убавить больше, чем у вас есть. Кредитный рейтинг слишком низок." << std::endl;
-                    std::cout << "Текущие шиллинги: " << pens << std::endl;
-                    std::cout << "Введите убавочные фунты ещё раз: " << std::endl;
+                    std::cout << "Текущие пенсы: " << pens << std::endl;
+                    std::cout << "Введите убавочные пенсы ещё раз: " << std::endl;
                     std::cin >> decreasement;
                 }
             } while (decreasement > pens);
@@ -138,8 +139,13 @@ public:
     }
 };
 
+
+
 int main()
 {
+    
+
+
     setlocale(LC_ALL, "RU");
     int answer = 1;
     sterling balance;
@@ -177,8 +183,8 @@ int main()
             std::cout << std::endl << "Новый баланс успешно установлен. \nОн составляет ";
             balance.sort();
             balance.balance();
-            std::cout << std::endl << "Нажмите для продолжения..." << std::endl;
-            std::cin >> answer;
+            std::cout << std::endl;
+            system("pause");
             break;
 
         case 2:
@@ -200,8 +206,8 @@ int main()
             std::cout << std::endl << "Баланс успешно обновлён. \nОн составляет ";
             balance.sort();
             balance.balance();
-            std::cout << std::endl << "Нажмите для продолжения..." << std::endl;
-            std::cin >> answer;
+            std::cout << std::endl;
+            system("pause");
             break;
         case 3:
             std::cout << "Вы выбрали убавить баланс. (а зачем?)" << std::endl;
@@ -220,33 +226,31 @@ int main()
             std::cout << "Убавочные пенсы: " << std::endl;
             std::cin >> answer;
             answer = dataCheckInt(answer, 0);
-            balance.decreaseSchilling(answer);
+            balance.decreasePens(answer);
 
             std::cout << std::endl << "Баланс успешно обновлён. \nОн составляет ";
             balance.sort();
             balance.balance();
-            std::cout << std::endl << "Нажмите для продолжения..." << std::endl;
-            std::cin >> answer;
+            std::cout << std::endl;
+            system("pause");
             break;
         case 4:
             std::cout << "Вы выбрали посмотреть баланс в пенсах." << std::endl;
             std::cout << "Всего у вас " << balance.allInPens() << " пенсов." << std::endl;
-
-            std::cout << std::endl << "Нажмите для продолжения..." << std::endl;
-            std::cin >> answer;
+            std::cout << std::endl;
+            system("pause");
             break;
         case 5:
             std::cout << "Вы выбрали вывести баланс в формате XX-XX-XX." << std::endl;
             balance.balance();
             std::cout << std::endl << "(Он и так каждый раз выводится)" << std::endl;
-
-            std::cout << std::endl << "Нажмите для продолжения..." << std::endl;
-            std::cin >> answer;
+            std::cout << std::endl;
+            system("pause");
             break;
         case 6:
             std::cout << "Ещё в разработке." << std::endl;
-            std::cout << std::endl << "Нажмите для продолжения..." << std::endl;
-            std::cin >> answer;
+            std::cout << std::endl;
+            system("pause");
             break;
         case 7:
             std::cout << "Спасибо, что были с нами. Всего хорошего." << std::endl;
