@@ -382,13 +382,13 @@ int main()
                     std::cout << " с суммой в ";
                     tmpSum2.addPens(arr[minId].allInPens());
                     tmpSum2.addPens(arr[maxId].allInPens());
-                    tmpSum1.sort();
+                    tmpSum2.sort();
                     tmpSum2.balance();
                     std::cout << "."<< std::endl;
                     system("pause");
                     break;
                 }
-                case 3: {
+               case 3: {
                     std::cout << "Вы выбрали посмотреть его элементы." << std::endl;
                     for (int i = 0; i < arr.size(); i++) {
                         arr[i].sort();
