@@ -257,7 +257,7 @@ int main()
         }
         case 6: 
         {
-            std::cout << "Вы выбрали поперации с набором сумм." << std::endl;
+            std::cout << "Вы выбрали операции с набором сумм." << std::endl;
             std::cout << "Введите количество N элементов будущего набора." << std::endl;
             int N;
             std::cout << "N: ";
@@ -326,10 +326,10 @@ int main()
                     int minPens = 10000000;
                     int maxPens = 0;
                     int difference = 10000000;
-                    int tmp1;
-                    int tmp2;
-                    int minId;
-                    int maxId;
+                    int tmp1 =0;
+                    int tmp2 = 0;
+                    int minId = 0;
+                    int maxId = 0;
                     for (int i = 0; i < arr.size(); i++) {
                         if (arr[i].allInPens() < minPens) {
                             minPens = arr[i].allInPens();
@@ -400,10 +400,11 @@ int main()
                     break;
                 }
                 }
-                arr.clear();
+                
             } while (answer != 4);
             system("pause");
             break;
+            arr.clear();
         }
         case 7:
         {
