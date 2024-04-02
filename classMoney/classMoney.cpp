@@ -281,7 +281,7 @@ int main()
             else {
                 std::cout << "Вы выбрали ввод вручную. Удачи" << std::endl;
                 for (int i = 0; i < N; i++) {
-                    std::cout << "Введите значение (в пенсах) для элемента массива " << i << ": ";
+                    std::cout << "Введите значение (в пенсах) для элемента массива " << i+1 << ": ";
                     std::cin >> answer;
                     answer = dataCheckInt(answer, 0);
                     arr[i].setPens(answer);
@@ -290,7 +290,7 @@ int main()
             }
             do {
                 system("cls");
-                std::cout << "Массив успешно заполнен. Что хотите сделать?" << std::endl << "1. - вывести среднее значение, выраженное в том же виде." << std::endl << "2. - Найти пары сумм, наиболее близких и наиболее далеких по значению." << std::endl << "3. - Посмотреть его элементы." << std::endl << "4. - вернуться в начальное меню" << std::endl;
+                std::cout << "Массив успешно заполнен. Что хотите сделать?" << std::endl << "1. - Вывести среднее значение, выраженное в том же виде." << std::endl << "2. - Найти пары сумм, наиболее близких и наиболее далеких по значению." << std::endl << "3. - Посмотреть его элементы." << std::endl << "4. - вернуться в начальное меню" << std::endl;
                 std::cin >> answer;
                 answer = dataCheckInt(answer, 1, 4);
                 switch (answer) {
@@ -331,16 +331,21 @@ int main()
                     int minId = 0;
                     int maxId = 0;
                     for (int i = 0; i < arr.size(); i++) {
+                        //Поиск наименьшего
                         if (arr[i].allInPens() < minPens) {
                             minPens = arr[i].allInPens();
                             minId = i;
                         }
+                        //Поиск наибольшего
                         if (arr[i].allInPens() > maxPens) {
                             maxPens = arr[i].allInPens();
                             maxId = i;
                         }
 
                         for (int j = 0; j < arr.size(); j++) {
+                            if (i == j) {
+                                continue;
+                            }
                             if (arr[i].allInPens() == arr[j].allInPens()){
                                 tmp1 = i;
                                 tmp2 = j;
